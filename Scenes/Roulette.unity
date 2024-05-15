@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 563310594}
   - component: {fileID: 563310593}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasRoulete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
