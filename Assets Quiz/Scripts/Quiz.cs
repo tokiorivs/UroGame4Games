@@ -33,6 +33,7 @@ public class Quiz : MonoBehaviour
 
     public bool gameOver = false;
     public bool isComplete;
+    public int questionLenght;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class Quiz : MonoBehaviour
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         GetNextQuestion();
         gameOverState = timer.GetGameOverState();
+        GetQuestionsListLength();
         
     }
    void Update()
@@ -49,10 +51,9 @@ public class Quiz : MonoBehaviour
     }
     void GameVerify() 
     {
-          scoreKeeper.ScorePercentil();
         if(timer.GetGameOverState())
         {
-            Debug.Log("se acabo el tiempo");
+            // Debug.Log("se acabo el tiempo");
             gameOver = true;
         }
         else if(questions.Count <= 0)
@@ -149,9 +150,9 @@ public class Quiz : MonoBehaviour
             buttonImage.sprite = defaultAnswerSprite;
         }
     }
-    public int GetQuestionsListLength()
+    public void GetQuestionsListLength()
     {
-        int questionsLength = questions.Count;
-        return  questionsLength;
+        questionLenght = questions.Count;
+
     }
 }

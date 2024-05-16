@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    int correctAnswers = 0;
-    int questionLenght;
-    int scorePercentil = 0;
-    Quiz quiz;
+    float correctAnswers = 0;
+    float scorePercentil = 0;
+    [SerializeField] Quiz quiz;
 
-    void Start()
-    {
-        quiz = FindObjectOfType<Quiz>();
-        // questionLenght = quiz.GetQuestionsListLength();
-    }
-
-    void Update()
-    {
-    }
-
-
-    public int GetCorrectAnswers()
+    public float GetCorrectAnswers()
     {
         return correctAnswers;
     }
@@ -29,42 +17,15 @@ public class ScoreKeeper : MonoBehaviour
     {
         correctAnswers++;
     }
-    public string CalculateLevel()
+    
+    public float  ScorePercentil()
     {
-        string level = "";
-
-        switch (correctAnswers)
-        {
-            case int n when n >= 0 && n <= 5:
-                level = "Felicidades, eres madera!";
-                break;
-            case int n when n >= 6 && n <= 10:
-                level = "Felicidades, tu puntaje es plata!";
-                break;
-            case int n when n >= 11 && n <= 15:
-                level = "Felicidades, tu puntaje es oro!";
-                break;
-            default:
-                level = "Tu puntaje no se encuentra dentro de los rangos evaluados.";
-                break;
-        }
-
-        return level;
-    }
-    public int  ScorePercentil()
-    {
-
-        if (questionLenght > 0)
-        {
-            scorePercentil = (int)((correctAnswers * 100f) / questionLenght);
-        }
-        else
-        {
-            // Handle the case where there are no questions (e.g., set scorePercentil to 0 or some default value)
-            scorePercentil = (int)0f;  // Example: Set scorePercentil to 0 if no questions
-        }
-        // Debug.Log("el puntaje en % es: " + scorePercentil);
-        return scorePercentil;
+        float questionLenght = quiz.questionLenght + 1;
+        Debug.Log("cantidad de preguntas" + questionLenght);
+        Debug.Log("cantidad de respuestas correctas" + correctAnswers);
+        scorePercentil = correctAnswers / questionLenght * 100;
+        Debug.Log("el puntaje en %" + scorePercentil);
+        return scorePercentil;     
     }
 
 }

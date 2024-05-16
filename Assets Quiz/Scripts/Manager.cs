@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -22,7 +24,14 @@ public class Manager : MonoBehaviour
         {
             quiz.gameObject.SetActive(false);
             endQuiz.gameObject.SetActive(true);
-            Debug.Log("Game Over! Switching to EndQuiz scene"); // More descriptive message
         }
+    }
+    public void HomeMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(2);
     }
 }

@@ -13,11 +13,5 @@ public class TimeAdmin : MonoBehaviour
         GameOver,
     }
     public GameState gameState;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
    
 }
