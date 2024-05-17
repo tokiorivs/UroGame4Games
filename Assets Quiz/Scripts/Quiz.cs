@@ -34,6 +34,7 @@ public class Quiz : MonoBehaviour
     public bool gameOver = false;
     public bool isComplete;
     public int questionLenght;
+    AudioQuiz audioQuiz; 
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class Quiz : MonoBehaviour
         GetNextQuestion();
         gameOverState = timer.GetGameOverState();
         GetQuestionsListLength();
+        audioQuiz = FindObjectOfType<AudioQuiz>();
         
     }
    void Update()
@@ -89,12 +91,15 @@ public class Quiz : MonoBehaviour
             buttonImage.sprite = CorrectAnswerSprite;
             scoreKeeper.IncrementCorrectAnswers();
             Debug.Log("respondiste bien");
+            audioQuiz.MatchSfx();
+            
         }
         else
         {
             buttonImage = answerButtons[index].GetComponent<Image>();
             buttonImage.sprite = IncorrecAnswerSprite;
             Debug.Log("respondiste mal");
+            audioQuiz.MissSfx();
         }
 
     }
