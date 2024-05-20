@@ -328,23 +328,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[2].Label
-      value: Otra vez
+      value: Again
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[3].Label
-      value: Ganaste
+      value: Ganaste_
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[4].Label
-      value: Perdiste
+      value: Perdiste_
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[5].Label
-      value: Otra vez
+      value: Again_
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[0].Amount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[1].Amount
@@ -352,15 +352,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[2].Amount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[3].Amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
+      propertyPath: wheelPieces.Array.data[4].Amount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[5].Amount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114361574848870256, guid: 160be82451391f6448834ec65286e007, type: 3}
       propertyPath: wheelPieces.Array.data[5].Chance
@@ -692,6 +696,9 @@ MonoBehaviour:
   buttonPressed: {fileID: 21300000, guid: a9b436bd0dc4fd5adaf7a7b5d24d74b3, type: 3}
   button: {fileID: 21300000, guid: ba5c33ee9a6034f89af44498259ccc2e, type: 3}
   buttonSound: {fileID: 8300000, guid: 153f5127d7800e4d78a34743a129ad24, type: 3}
+  winSound: {fileID: 8300000, guid: 490c4131f522dc0bca230b37e55d24f0, type: 3}
+  replySound: {fileID: 8300000, guid: c4b78599660589723bd46954dbb92ac4, type: 3}
+  loseSound: {fileID: 8300000, guid: 918c5eae3320b6bf29828f2036f7577d, type: 3}
   audioSource: {fileID: 0}
 --- !u!4 &481897439
 Transform:

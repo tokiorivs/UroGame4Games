@@ -13,6 +13,6 @@ namespace EasyUI.PickerWheelUI {
       public float Chance = 100f ;
 
       [HideInInspector] public int Index ;
-      [HideInInspector] public double _weight = 0f ;
+      [HideInInspector] public double _weight = 0 ;
    }
 }

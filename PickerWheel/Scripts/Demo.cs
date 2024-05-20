@@ -4,6 +4,7 @@ using UnityEngine;
 using EasyUI.PickerWheelUI;
 using UnityEngine.UI;
 using TMPro;
+using System.Security.Permissions;
 
 public class Demo : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Demo : MonoBehaviour
     [SerializeField] private Sprite buttonPressed;
     [SerializeField] private Sprite button;
     [SerializeField] private AudioClip buttonSound;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip replySound;
+    [SerializeField] private AudioClip loseSound;
     public AudioSource audioSource;
     private void Awake()
     {
@@ -36,10 +40,56 @@ public class Demo : MonoBehaviour
                uiSpiningButton.interactable = true;
                uiSpinButtonText.text = "Gira";
                uiSpiningButton.image.sprite = button;
+               string code = wheelPiece.Label;
+               Debug.Log("el codigo es " + code);
+               Sounds(code);
             audioSource.PlayOneShot(buttonSound);
 
             });
             pickerWheel.Spin();
         });
     }
+       private void Sounds(string code)
+    {
+        if(code == "Ganaste")
+        {
+            audioSource.PlayOneShot(winSound);
+            uiSpinButtonText.text = "Ganaste!!!";
+            Debug.Log("ganaste");
+        }
+        if(code == "Perdiste")
+        {
+            audioSource.PlayOneShot(loseSound);
+            uiSpinButtonText.text = "Piña";
+            Debug.Log("piña ");
+        }
+        if(code == "Again"){
+            audioSource.PlayOneShot(replySound);
+            uiSpinButtonText.text = "Vuelve a intentarlo";
+            Debug.Log("vuelve a intentarlo");
+        }
+
+        if(code == "Ganaste_")
+        {
+            audioSource.PlayOneShot(winSound);
+            uiSpinButtonText.text = "Ganaste!!!";
+            Debug.Log("ganaste");
+        }
+        if(code == "Perdiste_")
+        {
+            audioSource.PlayOneShot(loseSound);
+            uiSpinButtonText.text = "Piña";
+            Debug.Log("piña ");
+        }
+        if(code == "Again_"){
+            audioSource.PlayOneShot(replySound);
+            uiSpinButtonText.text = "Vuelve a intentarlo";
+            Debug.Log("vuelve a intentarlo");
+        }
+        // else{
+        //     uiSpinButtonText.text = "error horror";
+        // }
+    }
+
+
 }
