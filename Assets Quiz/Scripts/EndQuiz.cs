@@ -21,6 +21,6 @@ public class EndQuiz : MonoBehaviour
     {
         scorePercentil = scoreKeeper.ScorePercentil();
 
-        finalScoreText.text = "FELICITACIONESss RESPONDISTE EL " + scorePercentil.ToString("F2") + "% de las preguntas";
+        finalScoreText.text = "FELICITACIONESss RESPONDISTE EL " + (int)scorePercentil + "% de las preguntas";
     }
 }

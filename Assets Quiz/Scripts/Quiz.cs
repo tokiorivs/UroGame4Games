@@ -24,6 +24,8 @@ public class Quiz : MonoBehaviour
     [Header("Timer")]
     [SerializeField] Image timerImage;
     [SerializeField] float timeBetweenQuestions = 10f;
+
+
     bool gameOverState;
     Timer timer;
 

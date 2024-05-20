@@ -21,10 +21,7 @@ public class ScoreKeeper : MonoBehaviour
     public float  ScorePercentil()
     {
         float questionLenght = quiz.questionLenght + 1;
-        Debug.Log("cantidad de preguntas" + questionLenght);
-        Debug.Log("cantidad de respuestas correctas" + correctAnswers);
         scorePercentil = correctAnswers / questionLenght * 100;
-        Debug.Log("el puntaje en %" + scorePercentil);
         return scorePercentil;     
     }
 

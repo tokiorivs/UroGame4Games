@@ -20,8 +20,11 @@ namespace EasyUI.PickerWheelUI {
 
       [Space]
       [Header ("Sounds :")]
-      [SerializeField] private AudioSource audioSource ;
+      [SerializeField] public AudioSource audioSource ;
       [SerializeField] private AudioClip tickAudioClip ;
+      [SerializeField] private AudioClip buttonGame;       
+
+
       [SerializeField] [Range (0f, 1f)] private float volume = .5f ;
       [SerializeField] [Range (-3f, 3f)] private float pitch = 1f ;
 
