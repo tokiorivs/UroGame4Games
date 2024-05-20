@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -110,5 +111,9 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.InGame;
         OnGameStateUpdated?.Invoke(gameState);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
