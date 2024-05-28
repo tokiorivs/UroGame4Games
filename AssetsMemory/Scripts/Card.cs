@@ -5,6 +5,7 @@ public class Card : MonoBehaviour
 {
   
     [SerializeField] Button s_Button;
+    [SerializeField] Image s_BackImage;
 
     [SerializeField] Image s_Image;
 
@@ -52,13 +53,13 @@ public class Card : MonoBehaviour
     {
         if(s_Animate)
         {
-            AnimateCard();
+            AnimateCardFront();
         }
     }
 
     public void ShowCard()
     {
-        s_Target = Quaternion.Euler(180, 0, 0);
+        s_Target = Quaternion.Euler(0, 90, 0);
 
         s_Animate = true;
     }
@@ -77,6 +78,17 @@ public class Card : MonoBehaviour
         if (Quaternion.Angle(s_Button.transform.rotation, s_Target) <= 0.01f)
         {
             s_Button.transform.rotation = s_Target;
+
+            s_Animate = false;
+        }
+    } 
+     private void AnimateCardFront()
+    {
+        s_BackImage.transform.rotation = Quaternion.RotateTowards(s_BackImage.transform.rotation, s_Target, s_Speed);
+
+        if (Quaternion.Angle(s_BackImage.transform.rotation, s_Target) <= 0.01f)
+        {
+            s_BackImage.transform.rotation = s_Target;
 
             s_Animate = false;
         }

@@ -25,8 +25,8 @@ public class CardManager : Singleton<CardManager>
     float newPosX;
     float newPosY;
 
-    public Card cardImages;
-    public GameObject cartaPrueba;
+    // public Card cardImages;
+    // public GameObject cartaPrueba;
     public bool verifyCardEvent = false;
     private List<Card> m_Cards;
     private Dictionary<int, Card> m_SelectedCards;

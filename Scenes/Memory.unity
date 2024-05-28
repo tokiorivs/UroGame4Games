@@ -236,10 +236,8 @@ MonoBehaviour:
   - {fileID: 1573075007, guid: 2376a1325fb6139499783eff97cfb97d, type: 3}
   - {fileID: -238964790, guid: 2376a1325fb6139499783eff97cfb97d, type: 3}
   card: {fileID: 2153237087105195789, guid: 077325bdae3ec2c94a36413b84c838b0, type: 3}
-  cardImages: {fileID: 0}
-  cartaPrueba: {fileID: 0}
   verifyCardEvent: 0
-  m_Timer: {fileID: 0}
+  m_Timer: {fileID: 2055250831}
   m_TriesManager: {fileID: 0}
   UserInteractedWithCard: 0
 --- !u!114 &1551901299
