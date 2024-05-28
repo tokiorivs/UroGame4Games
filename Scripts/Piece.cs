@@ -21,7 +21,11 @@ public class Piece : MonoBehaviour
         penguin,
         pig,
         rabbit,
-        snake
+        snake,
+        medPad,
+        urosur,
+        instrument,
+        hearth,
     };
 
     public type pieceType;
