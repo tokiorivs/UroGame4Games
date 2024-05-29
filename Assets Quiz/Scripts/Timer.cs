@@ -9,14 +9,8 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float gameTimer = 10f;
-    bool gameEnd = false;
-    string saludo = "hola";
+    public bool gameEnd = false;
 
-
-    void Start()
-    {
-        saludo = "adios";
-    }
 
     void Update()
     {
@@ -53,11 +47,6 @@ public class Timer : MonoBehaviour
 
         }
     }
-    public string saludoState()
-    {
-        return saludo;
-    }
-
     public bool GetGameOverState()
     {
         return gameEnd;

@@ -8,16 +8,28 @@ public class CardTimer : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_TimerT;
     public bool IsPaused = false;
 
-    public float TotalTimeInSeconds {get; private set;} =0; 
+    public float TotalTimeInSeconds; 
     private bool m_Count = false;
+    CardManager cardManager;
+    private void Start()
+    {
+        cardManager = FindObjectOfType<CardManager>();
+        StartTimer();
+    }
 
     private void Update()
     {
         if(m_Count && !IsPaused)
         {
-            TotalTimeInSeconds += Time.deltaTime;
+            TotalTimeInSeconds -= Time.deltaTime;
             UpdateTimer(TotalTimeInSeconds);
         }
+        if (TotalTimeInSeconds <= 0f)
+        {
+            cardManager.gameOver = true;
+            Debug.Log("se acabo el tiempo");
+        }
+      
     }
     public void StartTimer()
     {

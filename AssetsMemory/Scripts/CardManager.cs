@@ -15,11 +15,13 @@ public class CardManager : Singleton<CardManager>
     float columnas;
     float filas;
     public float margin;
+    public bool gameOver = false;
 
     public List<GameObject> ListSelectedCards;
     public List<GameObject> ListCopy;
     public List<GameObject> ListOnGame;
     [SerializeField] List<Sprite> m_Items;
+    StatesManager statesManager;
 
     public GameObject card;
     float newPosX;
@@ -57,12 +59,14 @@ public class CardManager : Singleton<CardManager>
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         columnas = CardRectTransform.sizeDelta.x;
         filas = CardRectTransform.sizeDelta.y;
+        gameOver = false;
         ListCopy = new List<GameObject>();
         // CameraPosition();}
         Debug.Log("empezo el start");
         ListCopy = DuplicateCards(ListSelectedCards, ListCopy);
         ListOnGame = new List<GameObject>(ListCopy);
         // CreateBoard();
+        // statesManager = FindObjectOfType<StatesManager>;
         SetupCards();
 
     }
@@ -301,6 +305,7 @@ public class CardManager : Singleton<CardManager>
     private void GameOver()
     {
         Debug.Log("GAME OVER");
+        gameOver = true;
 
         // GridUnlockManager.Instance.CompletedCurrentLevel();
       
