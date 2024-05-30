@@ -18,13 +18,17 @@ public class Card : MonoBehaviour
 
     public int ChildId { get; private set; }
     public int PairId { get; private set; }
-
+    AudioCardMemory audioCardMemory;
     public Sprite Sprite
     {
         get
         {
             return s_Image.sprite;
         }
+    }
+    public void Awake()
+    {
+        audioCardMemory = FindObjectOfType<AudioCardMemory>();
     }
 
 
@@ -40,6 +44,7 @@ public class Card : MonoBehaviour
         {
             CardManager.Instance.SelectedCard(childid);
             Debug.Log("me eligieron XS");
+            audioCardMemory.FlipCard();
         });
 
     }

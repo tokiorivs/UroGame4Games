@@ -35,6 +35,7 @@ public class CardManager : Singleton<CardManager>
     private Dictionary<int, Card> m_MatchedCards;
     [SerializeField] CardTimer m_Timer;
     [SerializeField] TriesManager m_TriesManager;
+    AudioCardMemory audioCardMemory;
 
     public bool UserInteractedWithCard;
 
@@ -56,6 +57,7 @@ public class CardManager : Singleton<CardManager>
 
     void Start()
     {
+        audioCardMemory = FindObjectOfType<AudioCardMemory>();
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         columnas = CardRectTransform.sizeDelta.x;
         filas = CardRectTransform.sizeDelta.y;
@@ -287,11 +289,15 @@ public class CardManager : Singleton<CardManager>
      private void CardsMatched()
     {
         Debug.Log("Two cards matched!");
+        audioCardMemory.MatchCard();
         // SoundManager.Instance.Play_CardsMatched();
     }
 
     private void CardsDidNotMatch()
     {
+        // audioCardMemory.MissCard();
+        // audioCardMemory.FlipCard2();
+        // audioCardMemory.FlipCard2();
         Debug.Log("Cards did not match");
     }
      private void CheckGameOver()

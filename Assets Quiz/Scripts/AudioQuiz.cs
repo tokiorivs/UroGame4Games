@@ -7,6 +7,7 @@ public class AudioQuiz : MonoBehaviour
     public AudioClip matchSFX;
     public AudioClip missSFX  ;
     public AudioClip gameMusic;
+
     public AudioSource audioSource;
     // Start is called before the first frame update
     private void Start()
@@ -21,8 +22,5 @@ public class AudioQuiz : MonoBehaviour
     {
         audioSource.PlayOneShot(missSFX);
     }
-    public void Saludo()
-    {
-        Debug.Log("hola mundo");
-    }
+  
 }

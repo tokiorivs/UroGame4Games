@@ -2834,6 +2834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1158090598}
   gameTimer: 30
+  gameEnd: 0
 --- !u!4 &1111344231
 Transform:
   m_ObjectHideFlags: 0

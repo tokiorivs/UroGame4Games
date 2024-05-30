@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
                 Debug.Log("perdiste");
                 Debug.Log("el gameOver se cambio a " + gameEnd);
                 timerText.text = "--:--";
+                
 
             }
             else

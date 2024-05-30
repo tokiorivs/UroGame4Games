@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StatesManager : MonoBehaviour
 {
 [SerializeField] CardManager cardManager;
-    [SerializeField] EndMemory endMemory;
+[SerializeField] EndMemory endMemory;
     void Start()
     {
         cardManager = FindObjectOfType<CardManager>();
+        endMemory = FindObjectOfType<EndMemory>();
         cardManager.gameObject.SetActive(true);
         endMemory.gameObject.SetActive(false);
     }
@@ -32,9 +31,5 @@ public class StatesManager : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(4);
-    }
-    public void Saludos()
-    {
-        Debug.Log("saludo");
     }
 }
