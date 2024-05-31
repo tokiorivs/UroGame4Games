@@ -4,29 +4,28 @@ using UnityEngine.SceneManagement;
 public class StatesManager : MonoBehaviour
 {
 [SerializeField] CardManager cardManager;
-[SerializeField] EndMemory endMemory;
+[SerializeField] EndMemory gameEndWindow;
     void Start()
     {
         cardManager = FindObjectOfType<CardManager>();
-        endMemory = FindObjectOfType<EndMemory>();
+        gameEndWindow = FindObjectOfType<EndMemory>();
         cardManager.gameObject.SetActive(true);
-        endMemory.gameObject.SetActive(false);
+        gameEndWindow.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cardManager.gameOver)
+        if(cardManager.gameWin || cardManager.gameLose)
         {
-            GameOverCards();
+            GameEndWindow();
         }
         
     }
-    public void GameOverCards()
+    public void GameEndWindow()
     {
-        Debug.Log("me vengo");
         cardManager.gameObject.SetActive(false);
-        endMemory.gameObject.SetActive(true);
+        gameEndWindow.gameObject.SetActive(true);
     }
     public void restartGame()
     {

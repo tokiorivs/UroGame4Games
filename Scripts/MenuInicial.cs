@@ -19,6 +19,7 @@ public class MenuInicial : MonoBehaviour
     public void ChooseScene()
     {
         // int actualScene = scenes.numberScene;
+        Debug.Log("hola mundooooooo");
         SceneManager.LoadScene((int)numberScene);
         Debug.Log(numberScene);
     }

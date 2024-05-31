@@ -57,7 +57,6 @@ public class Quiz : MonoBehaviour
     {
         if(timer.GetGameOverState())
         {
-            // Debug.Log("se acabo el tiempo");
             gameOver = true;
         }
         else if(questions.Count <= 0)

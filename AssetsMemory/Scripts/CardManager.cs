@@ -15,7 +15,8 @@ public class CardManager : Singleton<CardManager>
     float columnas;
     float filas;
     public float margin;
-    public bool gameOver = false;
+    public bool gameWin = false;
+    public bool gameLose= false;
 
     public List<GameObject> ListSelectedCards;
     public List<GameObject> ListCopy;
@@ -61,7 +62,8 @@ public class CardManager : Singleton<CardManager>
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         columnas = CardRectTransform.sizeDelta.x;
         filas = CardRectTransform.sizeDelta.y;
-        gameOver = false;
+        gameWin = false;
+        gameLose = false;
         ListCopy = new List<GameObject>();
         // CameraPosition();}
         Debug.Log("empezo el start");
@@ -70,7 +72,7 @@ public class CardManager : Singleton<CardManager>
         // CreateBoard();
         // statesManager = FindObjectOfType<StatesManager>;
         SetupCards();
-
+        audioCardMemory.InicioGame();
     }
     public bool getCardEvent()
     {
@@ -302,16 +304,17 @@ public class CardManager : Singleton<CardManager>
     }
      private void CheckGameOver()
     {
+        // colocar las opciones si ganaste o perdiste para poder colocar los audios
         if(m_MatchedCards.Count == m_Cards.Count)
         {
-            GameOver();
+            GameWin();
         }
     }
 
-    private void GameOver()
+    private void GameWin()
     {
-        Debug.Log("GAME OVER");
-        gameOver = true;
+        Debug.Log("Ganaste el juego");
+        gameWin = true;
 
         // GridUnlockManager.Instance.CompletedCurrentLevel();
       

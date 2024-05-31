@@ -11,9 +11,11 @@ public class CardTimer : MonoBehaviour
     public float TotalTimeInSeconds; 
     private bool m_Count = false;
     CardManager cardManager;
+    AudioCardMemory audioCardMemory;
     private void Start()
     {
         cardManager = FindObjectOfType<CardManager>();
+        audioCardMemory = FindObjectOfType<AudioCardMemory>();
         StartTimer();
     }
 
@@ -26,8 +28,8 @@ public class CardTimer : MonoBehaviour
         }
         if (TotalTimeInSeconds <= 0f)
         {
-            cardManager.gameOver = true;
-            Debug.Log("se acabo el tiempo");
+            cardManager.gameLose = true;
+            Debug.Log("perdiste el juego");
         }
       
     }
