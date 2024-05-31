@@ -54,7 +54,7 @@ public class CardTimer : MonoBehaviour
     {
         string minutes = Mathf.Floor(totalSeconds / 60).ToString();
         string seconds = Mathf.Floor(totalSeconds % 60).ToString("00");
-        m_TimerT.text = "Time " + string.Format("{0}:{1}", minutes, seconds);
+        m_TimerT.text = string.Format("{0}:{1}", minutes, seconds);
     }
 
 

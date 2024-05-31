@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndMemory : MonoBehaviour
 {
@@ -58,6 +59,6 @@ public class EndMemory : MonoBehaviour
     public void LoseMessage()
     {
         endSoundsEffects.LoseGame();
-        finalMessage.text = "Lo Sentimos, Perdiste";
+        finalMessage.text = "Gracias por participar";
     }
 }

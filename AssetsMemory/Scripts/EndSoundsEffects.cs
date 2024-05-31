@@ -9,6 +9,7 @@ public class EndSoundsEffects : MonoBehaviour
     public AudioClip loseGame;
     public AudioClip winGame;
     public AudioClip endGame;
+    public AudioClip buttonSFX;
 
 
    public void WinGame()
@@ -25,5 +26,9 @@ public class EndSoundsEffects : MonoBehaviour
     {
         musicBackground.clip =endGame;
         musicBackground.Play();
+    }
+    public void ButtonSFX()
+    {
+        musicBackground.PlayOneShot(buttonSFX);
     }
 }
