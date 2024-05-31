@@ -9,12 +9,14 @@ public class CardTimer : MonoBehaviour
     public bool IsPaused = false;
 
     public float TotalTimeInSeconds; 
-    private bool m_Count = false;
+    public bool m_Count = false;
     CardManager cardManager;
+    StatesManager statesManager;
     AudioCardMemory audioCardMemory;
     private void Start()
     {
         cardManager = FindObjectOfType<CardManager>();
+        statesManager = FindObjectOfType<StatesManager>();
         audioCardMemory = FindObjectOfType<AudioCardMemory>();
         StartTimer();
     }
@@ -28,8 +30,11 @@ public class CardTimer : MonoBehaviour
         }
         if (TotalTimeInSeconds <= 0f)
         {
-            cardManager.gameLose = true;
-            Debug.Log("perdiste el juego");
+            statesManager.gameLose = true;
+            cardManager.gameEnd = true;
+            this.gameObject.SetActive(false);
+
+            StopTimer();
         }
       
     }

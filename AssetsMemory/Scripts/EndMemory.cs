@@ -10,44 +10,54 @@ public class EndMemory : MonoBehaviour
     CardManager cardManager;
     AudioCardMemory audioCardMemory;
     EndSoundsEffects endSoundsEffects;
+    StatesManager statesManager;
     bool gameLose;
-    bool gameOver;
+    bool gameEnd = false;
+    bool verify = false;
 
     void Start()
     {
-        cardManager = FindObjectOfType<CardManager>();
+        // cardManager = FindObjectOfType<CardManager>();
+        statesManager = FindObjectOfType<StatesManager>();
         audioCardMemory = FindObjectOfType<AudioCardMemory>();
         endSoundsEffects = FindObjectOfType<EndSoundsEffects>();
+
+        endSoundsEffects.MusicBackground();
+        audioCardMemory.PauseMusic();
         endSoundsEffects.MusicBackground();
     }
     void Update()
     {
-        if(gameLose)
+        if(gameEnd = statesManager.gameEnd && !verify)
         {
-            LoseMessage();
-            endSoundsEffects.LoseGame();
-        }
-        if(gameOver)
-        {
-            WinMessage();
-            endSoundsEffects.WinGame();
-        }
-        else
-        {
-            WinMessage();
-            endSoundsEffects.WinGame();
+
+            if(gameLose = statesManager.gameLose)
+            {
+                // Debug.Log("loser");
+                LoseMessage();
+                verify = true;
+                Debug.Log("verifiacnado " + verify);
+
+            }
+            else
+            {
+                // Debug.Log("winner");
+                WinMessage();
+                verify = true;
+                Debug.Log("verifiacnado " + verify);
+            }
         }
 
     }
 
     public void WinMessage()
     {
-        audioCardMemory.PauseMusic();
+        endSoundsEffects.WinGame();
         finalMessage.text    = "Felicitaciones Ganaste";
     }
     public void LoseMessage()
     {
-        audioCardMemory.PauseMusic();
+        endSoundsEffects.LoseGame();
         finalMessage.text = "Lo Sentimos, Perdiste";
     }
 }

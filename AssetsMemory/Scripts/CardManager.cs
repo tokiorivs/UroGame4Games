@@ -16,7 +16,8 @@ public class CardManager : Singleton<CardManager>
     float filas;
     public float margin;
     public bool gameWin = false;
-    public bool gameLose= false;
+    public bool gameLose = false;
+    public bool gameEnd = false;
 
     public List<GameObject> ListSelectedCards;
     public List<GameObject> ListCopy;
@@ -34,36 +35,39 @@ public class CardManager : Singleton<CardManager>
     private List<Card> m_Cards;
     private Dictionary<int, Card> m_SelectedCards;
     private Dictionary<int, Card> m_MatchedCards;
-    [SerializeField] CardTimer m_Timer;
+    [SerializeField] CardTimer cardTimer;
     [SerializeField] TriesManager m_TriesManager;
     AudioCardMemory audioCardMemory;
 
     public bool UserInteractedWithCard;
 
 
-    public bool m_IsPaused {
-        get
-        {
-            return m_IsPaused;
-        }
-        set 
-        {
-            m_Timer.IsPaused = value;
-            m_IsPaused = value;
-        }
+    // public bool m_IsPaused {
+    //     get
+    //     {
+    //         return m_IsPaused;
+    //     }
+    //     set 
+    //     {
+    //         cardTimer.IsPaused = value;
+    //         m_IsPaused = value;
+    //     }
 
-    }
+    // }
 
 
 
     void Start()
     {
+        statesManager = FindObjectOfType<StatesManager>();
+        cardTimer = FindObjectOfType<CardTimer>();
         audioCardMemory = FindObjectOfType<AudioCardMemory>();
         RectTransform CardRectTransform = card.GetComponent<RectTransform>();
         columnas = CardRectTransform.sizeDelta.x;
         filas = CardRectTransform.sizeDelta.y;
         gameWin = false;
         gameLose = false;
+        gameEnd = false;
         ListCopy = new List<GameObject>();
         // CameraPosition();}
         Debug.Log("empezo el start");
@@ -307,6 +311,10 @@ public class CardManager : Singleton<CardManager>
         // colocar las opciones si ganaste o perdiste para poder colocar los audios
         if(m_MatchedCards.Count == m_Cards.Count)
         {
+            cardTimer.gameObject.SetActive(false);
+            cardTimer.StopTimer();
+            gameLose = false;
+            statesManager.gameLose = gameLose;
             GameWin();
         }
     }
@@ -314,7 +322,7 @@ public class CardManager : Singleton<CardManager>
     private void GameWin()
     {
         Debug.Log("Ganaste el juego");
-        gameWin = true;
+        gameEnd = true;
 
         // GridUnlockManager.Instance.CompletedCurrentLevel();
       

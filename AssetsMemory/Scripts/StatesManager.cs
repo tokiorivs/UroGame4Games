@@ -5,6 +5,8 @@ public class StatesManager : MonoBehaviour
 {
 [SerializeField] CardManager cardManager;
 [SerializeField] EndMemory gameEndWindow;
+public bool gameLose;
+public bool gameEnd;
     void Start()
     {
         cardManager = FindObjectOfType<CardManager>();
@@ -16,8 +18,9 @@ public class StatesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cardManager.gameWin || cardManager.gameLose)
+        if(cardManager.gameEnd)
         {
+            gameEnd = cardManager.gameEnd;
             GameEndWindow();
         }
         

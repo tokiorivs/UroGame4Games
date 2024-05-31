@@ -14,13 +14,16 @@ public class EndSoundsEffects : MonoBehaviour
    public void WinGame()
     {
         audioSource.clip = winGame  ;
+        audioSource.Play();
     }
     public void LoseGame()
     {
         audioSource.clip = loseGame;
+        audioSource.Play();
     }
     public void MusicBackground()
     {
-        musicBackground.PlayOneShot(endGame);
+        musicBackground.clip =endGame;
+        musicBackground.Play();
     }
 }
