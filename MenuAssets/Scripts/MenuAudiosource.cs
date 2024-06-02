@@ -9,10 +9,12 @@ public class MenuAudiosource : MonoBehaviour
     [SerializeField] AudioClip buttonSound;
     void Start()
     {
+       audioSource.clip = musisBackground;
        audioSource.Play(); 
     }
-    private void ButtonSound()
+    public void ButtonSound()
     {
+        Debug.Log("soy el sonido ");
         audioSource.PlayOneShot(buttonSound);
     }
 

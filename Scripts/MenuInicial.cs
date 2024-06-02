@@ -5,10 +5,10 @@ public class MenuInicial : MonoBehaviour
 {
     enum scenes {
         menu = 0,
-        safari = 1,
-        trivia = 2,
-        roulette = 3,
-        memoria = 4,
+        memoria = 1,
+        roulette = 2,
+        trivia = 3,
+        creditos = 4,
     }
 
     [SerializeField] scenes numberScene;
