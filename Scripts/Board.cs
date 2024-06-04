@@ -58,8 +58,7 @@ public class Board : MonoBehaviour
             if (!setupMade)
             {
                 SetupBoard();
-                PositionCamera();
-                setupMade = true;
+                PositionCamera(); setupMade = true;
             }
             StartCoroutine(SetupPieces());
         }

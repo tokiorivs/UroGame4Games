@@ -69,17 +69,17 @@ public class Demo : MonoBehaviour
             Debug.Log("vuelve a intentarlo");
         }
 
-        if(code == "Ganaste_")
+        if(code == "Premio")
         {
             audioSource.PlayOneShot(winSound);
             uiSpinButtonText.text = "Ganaste!!!";
         }
-        if(code == "Perdiste_")
+        if(code == "Piña")
         {
             audioSource.PlayOneShot(loseSound);
             uiSpinButtonText.text = "Piña";
         }
-        if(code == "Again_"){
+        if(code == "Gira"){
             audioSource.PlayOneShot(replySound);
             uiSpinButtonText.text = "Vuelve a intentarlo";
         }

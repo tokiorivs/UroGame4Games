@@ -31,6 +31,6 @@ public class Manager : MonoBehaviour
     }
     public void ResetGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

@@ -32,6 +32,6 @@ public bool gameEnd;
     }
     public void restartGame()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(1);
     }
 }
